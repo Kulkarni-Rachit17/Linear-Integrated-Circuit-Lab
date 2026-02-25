@@ -89,7 +89,7 @@ DC analysis was performed to verify proper biasing of the PMOS transistor.
 
 ### DC Analysis Result
 
-![DC Analysis](images/dc_analysis.jpeg)
+![DC Analysis](dc_analysis.jpeg)
 
 Observations:
 - Drain current ≈ 500 µA  
@@ -106,11 +106,11 @@ Transient analysis was carried out using a small sinusoidal input signal applied
 
 ### Transient Analysis – Input and Output Waveforms
 
-![Transient Analysis 1](images/transient_1.jpeg)
+![Transient Analysis 1](transient_1.jpeg)
 
 ### Transient Analysis – Combined Waveforms
 
-![Transient Analysis 2](images/transient_2.jpeg)
+![Transient Analysis 2](transient_2.jpeg)
 
 Observations:
 - Output amplitude is higher than input  
@@ -130,7 +130,7 @@ AC frequency response analysis was performed to study gain and bandwidth.
 
 ### AC Frequency Response
 
-![AC Analysis](images/ac_analysis.jpeg)
+![AC Analysis](ac_analysis.jpeg)
 
 Observations:
 - −3 dB cutoff frequency ≈ **9.52 MHz**  

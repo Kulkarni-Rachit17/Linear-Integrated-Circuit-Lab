@@ -61,7 +61,7 @@ From the process library, $k_n' \approx 277 \mu A/V^2$:
 ### 4. Circuit Schematic
 The schematic below was constructed in LTspice using the `tsmc018.lib` library.
 
-![Circuit Schematic](schematic.png)
+![Circuit Schematic](circuit2.jpeg)
 
 ---
 
@@ -70,7 +70,7 @@ The schematic below was constructed in LTspice using the `tsmc018.lib` library.
 #### A. DC Operating Point Analysis
 The simulation was performed to verify the quiescent points ($I_D$ and $V_{out}$).
 
-![DC Analysis Results](dc_analysis.png)
+![DC Analysis Results](dc_analysis2.jpeg)
 
 * **Simulated $I_D$:** $506 \mu A$ (Matches $500\mu A$ target)
 * **Simulated $V_{out}$:** $1.104 V$ (Matches $1.1V$ target)
@@ -79,7 +79,7 @@ The simulation was performed to verify the quiescent points ($I_D$ and $V_{out}$
 #### B. Transient Analysis
 A $1kHz$ sine wave with $10mV$ amplitude ($20mV$ p-p) was applied.
 
-![Transient Analysis Waveform](transient_analysis.png)
+![Transient Analysis Waveform](transient2_1.jpeg)
 
 * **$V_{in(p-p)}$:** $19.99 mV$
 * **$V_{out(p-p)}$:** $0.25 V$
@@ -88,7 +88,7 @@ A $1kHz$ sine wave with $10mV$ amplitude ($20mV$ p-p) was applied.
 #### C. AC Analysis (Frequency Response)
 The frequency response was analyzed with a $10pF$ load capacitor.
 
-![AC Analysis Bode Plot](ac_analysis.png)
+![AC Analysis Bode Plot](ac_analysis2.jpeg)
 
 * **Mid-band Gain:** $21.95 dB$
 * **3dB Bandwidth:** $2.276 MHz$

@@ -1,4 +1,4 @@
-# Experiment 2 — Differential Amplifier  
+# Experiment 4 — Differential Amplifier  
 ## Circuit 1: NMOS Differential Pair with Resistive Load
 
 ---

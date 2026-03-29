@@ -495,8 +495,7 @@ The resistive-load differential amplifier operates correctly and produces expect
 👉 Final Result:  
 Resistive load → Low gain, High bandwidth
 
----
-# Experiment 2 — Differential Amplifier  
+--- 
 ## Circuit 3: NMOS Differential Pair with PMOS Active Load and Bias Control
 
 ---

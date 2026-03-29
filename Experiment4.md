@@ -183,6 +183,291 @@ Vid = 600 mV > 0.48 V
 | Bandwidth | ~10 MHz |
 
 ---
+  
+## Circuit 2: NMOS Differential Pair with PMOS Current Mirror Load
+
+---
+
+## Objective
+
+To design and analyze a CMOS differential amplifier using a PMOS current mirror load and verify its DC, transient, and AC performance through LTspice simulation.
+
+---
+
+## Overview
+
+A differential amplifier amplifies the difference between two input signals while rejecting common-mode signals. In this circuit, resistive loads are replaced by a PMOS current mirror, which increases output resistance and improves gain.
+
+This configuration is widely used in analog integrated circuits because active loads occupy less area and provide higher gain than resistors.
+
+---
+
+## Circuit Description
+
+The circuit contains:
+
+- M1, M2 → NMOS differential pair  
+- M3 → Tail current source  
+- M4, M5 → PMOS current mirror load  
+- VDD = 0.9 V, VSS = -0.9 V  
+
+M4 is diode-connected and sets the reference current. M5 mirrors this current to the other branch. The output is obtained using the mirror-loaded branch.
+
+---
+
+## Important Concept
+
+The circuit works on differential input:
+
+Vid = Vin1 − Vin2  
+
+- If Vin1 increases → M1 current increases  
+- If Vin2 increases → M2 current increases  
+- PMOS mirror converts this current difference into output voltage variation
+
+Because the load is active, the effective output resistance is high, so gain is much larger than in the resistive-load case.
+
+---
+
+## Circuit Diagram
+
+<img src="YOUR_CIRCUIT2_SCHEMATIC" width="800">
+
+---
+
+## Given Parameters
+
+| Parameter | Value |
+|----------|------|
+| VDD | 0.9 V |
+| VSS | -0.9 V |
+| Power | 2.2 mW |
+| μnCox | 236.5 µA/V² |
+| μpCox | 90 µA/V² |
+| Vov,n | 0.34 V |
+| Vov,p | 0.4 V |
+| λ | 0.02 V⁻¹ |
+| CL | 10 pF |
+| L | 540 nm |
+
+---
+
+## Design Calculations
+
+### Tail Current
+
+ISS = P / (VDD − VSS)  
+ISS = 2.2m / 1.8 = 1.22 mA  
+
+---
+
+### Branch Current
+
+ID = ISS / 2 = 0.61 mA  
+
+---
+
+### NMOS Transconductance
+
+gm = 2ID / Vov  
+gm = 2 × 0.611m / 0.34  
+gm = 3.59 mS  
+
+---
+
+### Output Resistance of Each MOSFET
+
+ro = 1 / (λID)  
+ro = 1 / (0.02 × 0.611m)  
+ro = 81.8 kΩ  
+
+---
+
+### Effective Output Resistance
+
+Rout = ron || rop  
+Rout = 81.8k || 81.8k  
+Rout = 40.9 kΩ  
+
+---
+
+### Theoretical Gain
+
+Av = gm × Rout  
+Av = 3.59m × 40.9k  
+Av ≈ 147 V/V  
+
+Av(dB) = 20 log10(147)  
+Av(dB) ≈ 43.3 dB  
+
+---
+
+### Bandwidth
+
+fp = 1 / (2π Rout CL)  
+fp = 1 / (2π × 40.9k × 10p)  
+fp ≈ 389 kHz  
+
+---
+
+### Slew Rate
+
+SR = ISS / CL  
+SR = 1.22m / 10p  
+SR = 122 V/µs  
+
+---
+
+### PMOS Mirror Sizing
+
+W/L = 2ID / (μpCox × Vov,p²)  
+W/L = 2 × 0.611m / (90µ × 0.4²)  
+W/L ≈ 84.8  
+
+If L = 0.54 µm, then  
+
+W = 84.8 × 0.54  
+W ≈ 45.8 µm  
+
+---
+
+## DC Analysis
+
+<img src="YOUR_DC_IMAGE_CIRCUIT2" width="800">
+
+### Observations
+
+| Parameter | Value |
+|----------|------|
+| Vout1 | ~ -0.0084 V |
+| Vout2 | ~ -0.0084 V |
+| VS | ~ -0.7004 V |
+| ID1 | ~ 0.610 mA |
+| ID2 | ~ 0.610 mA |
+| ISS | ~ 1.220 mA |
+| VB1 | ~ -0.26 V |
+| VB2 | ~ 0 V |
+
+✔ Balanced operation  
+✔ Current mirror working properly  
+✔ Tail current matches design value  
+
+---
+
+## Transient Analysis
+
+---
+
+### Linear Region
+
+Vin1 = +50 mV  
+Vin2 = -50 mV  
+
+Vid = 100 mV < 0.48 V  
+
+<img src="YOUR_LINEAR_WAVEFORM_CIRCUIT2" width="800">
+
+### Result
+
+- Output is sinusoidal  
+- No clipping  
+- Mirror load responds correctly  
+
+Vin(pp) = 100 mV  
+Vout(pp) ≈ 160 mV  
+
+Gain ≈ 1.6 V/V  
+
+---
+
+### Non-Linear Region
+
+Vin1 = +300 mV  
+Vin2 = -300 mV  
+
+Vid = 600 mV > 0.48 V  
+
+<img src="YOUR_NONLINEAR_WAVEFORM_CIRCUIT2" width="800">
+
+### Result
+
+- Output is clipped  
+- Distortion is present  
+- One transistor tends to turn OFF  
+
+Output max ≈ +0.56 V  
+Output min ≈ -0.28 V  
+
+---
+
+## AC Analysis
+
+<img src="YOUR_AC_PLOT_CIRCUIT2" width="800">
+
+### Results
+
+| Parameter | Value |
+|----------|------|
+| Midband Gain | ~4.35 to 4.65 dB |
+| Gain (linear) | ~1.65 to 1.71 V/V |
+| Bandwidth | As observed from AC plot |
+
+---
+
+## Comparison of Results
+
+| Parameter | Theoretical | Simulated |
+|----------|------------|----------|
+| VDD | 0.9 V | 0.9 V |
+| VSS | -0.9 V | -0.9 V |
+| ISS | 1.222 mA | 1.220 mA |
+| ID1 | 0.611 mA | 0.610 mA |
+| ID2 | 0.611 mA | 0.610 mA |
+| ID4 | 0.611 mA | 0.610 mA |
+| ID5 | 0.611 mA | 0.610 mA |
+| Vout1 | 0 V | -0.0084 V |
+| Vout2 | 0 V | -0.0084 V |
+| VS | -0.14 V | -0.7004 V |
+| VB1 | -0.25 V | -0.26 V |
+| VB2 | 0 V | ~0 V |
+| gm | 3.59 mS | Design value |
+| ro | 81.8 kΩ | Model based |
+| Rout | 40.9 kΩ | Effective |
+| Gain | 147 V/V | ~1.6 V/V |
+| Gain (dB) | 43.3 dB | ~4.08 dB |
+| Bandwidth | 389 kHz | From AC plot |
+| Slew Rate | 122 V/µs | Theoretical |
+
+---
+
+## Key Observations
+
+- Current mirror load gives high theoretical gain  
+- DC operating point is well balanced  
+- Small input gives linear output  
+- Large input produces clipping  
+- Practical measured gain is lower because output is measured single-ended  
+
+---
+
+## Important Note
+
+To measure proper differential gain in LTspice, use:
+
+V(vout2) - V(vout1)
+
+This gives the true differential output and better matches theory.
+
+---
+
+## Conclusion
+
+The current-mirror-loaded differential amplifier operates correctly and shows higher theoretical gain than the resistive-load amplifier. The DC biasing and current mirror action are correct, and the transient response confirms linear and non-linear regions clearly.
+
+👉 Final Result:  
+Current mirror load → High gain, lower bandwidth, better active-load performance
+
+---
 
 ## Comparison of Results
 

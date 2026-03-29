@@ -115,7 +115,7 @@ SR ≈ 122 V/µs
 
 ## DC Analysis
 
-<img src="YOUR_DC_IMAGE" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/DC1.png)
 
 ### Observations
 
@@ -142,7 +142,9 @@ Vin2 = -50 mV
 
 Vid = 100 mV < 0.48 V  
 
-<img src="YOUR_LINEAR_WAVEFORM" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/TRASN1.png)
+
+---
 
 ### Result
 
@@ -161,7 +163,8 @@ Vin2 = -300 mV
 
 Vid = 600 mV > 0.48 V  
 
-<img src="YOUR_NONLINEAR_WAVEFORM" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%201(3)%20NON%20LINEAR.png)
+
 
 ### Result
 
@@ -173,7 +176,7 @@ Vid = 600 mV > 0.48 V
 
 ## AC Analysis
 
-<img src="YOUR_AC_PLOT" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%201(4).png)
 
 ### Results
 
@@ -231,7 +234,8 @@ Because the load is active, the effective output resistance is high, so gain is 
 
 ## Circuit Diagram
 
-<img src="YOUR_CIRCUIT2_SCHEMATIC" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT2DIAGRAM.png)
+
 
 ---
 
@@ -333,7 +337,7 @@ W ≈ 45.8 µm
 
 ## DC Analysis
 
-<img src="YOUR_DC_IMAGE_CIRCUIT2" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/DC2.png)
 
 ### Observations
 
@@ -364,8 +368,7 @@ Vin1 = +50 mV
 Vin2 = -50 mV  
 
 Vid = 100 mV < 0.48 V  
-
-<img src="YOUR_LINEAR_WAVEFORM_CIRCUIT2" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/TRANS2.png)
 
 ### Result
 
@@ -387,7 +390,8 @@ Vin2 = -300 mV
 
 Vid = 600 mV > 0.48 V  
 
-<img src="YOUR_NONLINEAR_WAVEFORM_CIRCUIT2" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%202(4)%20NON%20LINEAR.png)
+
 
 ### Result
 
@@ -402,7 +406,7 @@ Output min ≈ -0.28 V
 
 ## AC Analysis
 
-<img src="YOUR_AC_PLOT_CIRCUIT2" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%202(5).png)
 
 ### Results
 
@@ -543,7 +547,8 @@ Because the PMOS loads are biased externally, the output behavior becomes more s
 
 ## Circuit Diagram
 
-<img src="YOUR_CIRCUIT3_SCHEMATIC" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT3DIAGRAM.png)
+
 
 ---
 
@@ -627,7 +632,8 @@ SR ≈ 123 V/µs
 
 ## DC Analysis
 
-<img src="YOUR_DC_IMAGE_CIRCUIT3" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/DC3.png)
+
 
 ### Observations
 
@@ -659,7 +665,8 @@ Vin2 = -50 mV
 
 Vid = 100 mV < 0.48 V  
 
-<img src="YOUR_LINEAR_WAVEFORM_CIRCUIT3" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%203(3).png)
+
 
 ### Result
 
@@ -681,7 +688,8 @@ Vin2 = -300 mV
 
 Vid = 600 mV > 0.48 V  
 
-<img src="YOUR_NONLINEAR_WAVEFORM_CIRCUIT3" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%203(4).png)
+
 
 ### Result
 
@@ -695,7 +703,8 @@ Output clipped near ±0.85 V
 
 ## AC Analysis
 
-<img src="YOUR_AC_PLOT_CIRCUIT3" width="800">
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/259fa4b5395d71668f293f4634472c176f717d84/CIRCUIT%203(5).png)
+
 
 ### Results
 

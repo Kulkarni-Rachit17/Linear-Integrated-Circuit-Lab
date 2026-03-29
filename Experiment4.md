@@ -45,7 +45,7 @@ Thus outputs are equal in magnitude but opposite in phase.
 
 ## Circuit Diagram
 
-<img src="YOUR_SCHEMATIC_IMAGE" width="800">
+![IMAGE ALT]()
 
 ---
 

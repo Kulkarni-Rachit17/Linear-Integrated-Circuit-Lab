@@ -45,7 +45,7 @@ Thus outputs are equal in magnitude but opposite in phase.
 
 ## Circuit Diagram
 
-![IMAGE ALT]()
+![image alt](https://github.com/Kulkarni-Rachit17/Linear-Integrated-Circuit-Lab/blob/6b49333c2b70b540b003b6cc89302b946b8eb24a/CIRCUIT1DIAGRAM.png)
 
 ---
 

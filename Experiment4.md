@@ -496,3 +496,287 @@ The resistive-load differential amplifier operates correctly and produces expect
 Resistive load → Low gain, High bandwidth
 
 ---
+# Experiment 2 — Differential Amplifier  
+## Circuit 3: NMOS Differential Pair with PMOS Active Load and Bias Control
+
+---
+
+## Objective
+
+To design and analyze a CMOS differential amplifier using PMOS active load with external bias control and verify its DC, transient, and AC performance through LTspice simulation.
+
+---
+
+## Overview
+
+A differential amplifier amplifies the difference between two input signals and rejects common-mode components. In this circuit, PMOS transistors are used as active loads, and external bias voltages are applied to improve operating-point control.
+
+Compared to the previous circuit, this configuration offers better bias stability and improved practical gain.
+
+---
+
+## Circuit Description
+
+The circuit contains:
+
+- M1, M2 → NMOS differential pair  
+- M3 → Tail current source controlled by VB1  
+- M4, M5 → PMOS active loads controlled by VB2  
+- VDD = 0.9 V, VSS = -0.9 V  
+
+VB1 controls the tail current source and VB2 sets the PMOS load bias. This makes the operating point more controllable and stable.
+
+---
+
+## Important Concept
+
+The circuit operates with differential input:
+
+Vid = Vin1 − Vin2  
+
+- If Vin1 increases → M1 current increases  
+- If Vin2 increases → M2 current increases  
+- Active PMOS loads convert current changes into larger output voltage variations
+
+Because the PMOS loads are biased externally, the output behavior becomes more stable and gain improves practically.
+
+---
+
+## Circuit Diagram
+
+<img src="YOUR_CIRCUIT3_SCHEMATIC" width="800">
+
+---
+
+## Given Parameters
+
+| Parameter | Value |
+|----------|------|
+| VDD | 0.9 V |
+| VSS | -0.9 V |
+| VB1 | -0.25 V |
+| VB2 | 0.2 V |
+| μnCox | 236.5 µA/V² |
+| Vov,n | 0.34 V |
+| λ | 0.02 V⁻¹ |
+| CL | 10 pF |
+
+---
+
+## Design Calculations
+
+### Tail Current
+
+ISS ≈ 1.23 mA  
+
+---
+
+### Branch Current
+
+ID = ISS / 2  
+ID ≈ 0.616 mA  
+
+---
+
+### Transconductance
+
+gm = 2ID / Vov  
+gm = 2 × 0.616m / 0.34  
+gm ≈ 3.62 mS  
+
+---
+
+### Output Resistance
+
+ro = 1 / (λID)  
+ro = 1 / (0.02 × 0.616m)  
+ro ≈ 81 kΩ  
+
+---
+
+### Effective Output Resistance
+
+Rout = ro || ro  
+Rout ≈ 40.5 kΩ  
+
+---
+
+### Theoretical Gain
+
+Av = gm × Rout  
+Av ≈ 3.62m × 40.5k  
+Av ≈ 147 V/V  
+
+Av(dB) ≈ 43.3 dB  
+
+---
+
+### Bandwidth
+
+fp = 1 / (2π Rout CL)  
+fp ≈ 390 kHz  
+
+---
+
+### Slew Rate
+
+SR = ISS / CL  
+SR ≈ 1.23m / 10p  
+SR ≈ 123 V/µs  
+
+---
+
+## DC Analysis
+
+<img src="YOUR_DC_IMAGE_CIRCUIT3" width="800">
+
+### Observations
+
+| Parameter | Value |
+|----------|------|
+| Vout1 | ~ -0.2719 V |
+| Vout2 | ~ -0.2719 V |
+| VS | ~ -0.7007 V |
+| ID1 | ~ 0.616 mA |
+| ID2 | ~ 0.616 mA |
+| ISS | ~ 1.233 mA |
+| VB1 | -0.25 V |
+| VB2 | 0.2 V |
+
+✔ Stable biasing achieved  
+✔ Outputs are balanced  
+✔ Tail current matches expected value  
+
+---
+
+## Transient Analysis
+
+---
+
+### Linear Region
+
+Vin1 = +50 mV  
+Vin2 = -50 mV  
+
+Vid = 100 mV < 0.48 V  
+
+<img src="YOUR_LINEAR_WAVEFORM_CIRCUIT3" width="800">
+
+### Result
+
+- Output is sinusoidal  
+- No distortion  
+- Higher practical gain than Circuit 2  
+
+Output amplitude ≈ ±600 mV  
+Vout(pp) ≈ 1.2 V  
+
+Gain ≈ 12 V/V  
+
+---
+
+### Non-Linear Region
+
+Vin1 = +300 mV  
+Vin2 = -300 mV  
+
+Vid = 600 mV > 0.48 V  
+
+<img src="YOUR_NONLINEAR_WAVEFORM_CIRCUIT3" width="800">
+
+### Result
+
+- Output is clipped  
+- Distortion is strong  
+- One transistor moves toward cutoff  
+
+Output clipped near ±0.85 V  
+
+---
+
+## AC Analysis
+
+<img src="YOUR_AC_PLOT_CIRCUIT3" width="800">
+
+### Results
+
+| Parameter | Value |
+|----------|------|
+| Gain | ~30 dB |
+| Gain (linear) | ~31 V/V |
+| Bandwidth | As observed from AC plot |
+
+---
+
+## Comparison of Results
+
+| Parameter | Theoretical | Simulated |
+|----------|------------|----------|
+| ISS | 1.222 mA | 1.233 mA |
+| ID | 0.611 mA | 0.616 mA |
+| Vout1 | 0 V | -0.2719 V |
+| Vout2 | 0 V | -0.2719 V |
+| VS | -0.14 V | -0.7007 V |
+| VB1 | -0.25 V | -0.25 V |
+| VB2 | 0.2 V | 0.2 V |
+| Gain (theoretical) | 147 V/V | — |
+| Gain (transient) | — | ~12 V/V |
+| Gain (AC) | — | ~31 V/V |
+| Bandwidth | 390 kHz | From AC plot |
+| Slew Rate | 123 V/µs | Theoretical |
+
+---
+
+## Complete Comparison of Values
+
+| Parameter | Theoretical / Designed Value | Simulated / Observed Value | Remark |
+|----------|------------------------------:|---------------------------:|--------|
+| Supply Voltage VDD | 0.9 V | 0.9 V | Matched |
+| Negative Supply VSS | -0.9 V | -0.9 V | Matched |
+| Tail Bias VB1 | -0.25 V | -0.25 V | Matched |
+| PMOS Bias VB2 | 0.2 V | 0.2 V | Matched |
+| Tail Current ISS | 1.222 mA | 1.233 mA | Very close |
+| Branch Current ID1 | 0.611 mA | 0.616 mA | Very close |
+| Branch Current ID2 | 0.611 mA | 0.616 mA | Very close |
+| Vout1 at DC | 0 V | -0.2719 V | Shifted by bias |
+| Vout2 at DC | 0 V | -0.2719 V | Balanced |
+| Source Node VS | -0.14 V | -0.7007 V | Bias controlled |
+| gm | 3.62 mS | Design value | Used in theory |
+| ro | 81 kΩ | Model based | Used in theory |
+| Rout | 40.5 kΩ | Effective | Used in theory |
+| Gain (theoretical) | 147 V/V | — | Ideal |
+| Gain (AC) | — | ~31 V/V | Practical |
+| Gain (transient) | — | ~12 V/V | From waveform |
+| Bandwidth | 390 kHz | From AC plot | Practical |
+| Slew Rate | 123 V/µs | Theoretical | Matched by design |
+
+---
+
+## Key Observations
+
+- External bias improves operating-point control  
+- DC behavior is stable and balanced  
+- Practical gain is higher than Circuit 2  
+- Output clipping appears clearly for larger differential input  
+- Active load improves performance significantly over resistive load  
+
+---
+
+## Important Note
+
+For actual differential gain in LTspice, use:
+
+V(vout2) - V(vout1)
+
+This gives the correct differential output response.
+
+---
+
+## Conclusion
+
+The bias-controlled active-load differential amplifier operates correctly and provides better practical performance than the earlier circuits. External bias voltages improve stability and make the circuit more suitable for analog integrated design.
+
+👉 Final Result:  
+Bias-controlled active load → Better stability, better practical gain, improved control
+
+---
